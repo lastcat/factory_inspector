@@ -5,7 +5,7 @@ require 'factory_inspector/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "factory_inspector"
-  spec.version       = Factoryinspector::VERSION
+  spec.version       = FactoryInspector::VERSION
   spec.authors       = ["yoshitake.nakaji"]
   spec.email         = ["kokodoko966@gmail.com"]
 
