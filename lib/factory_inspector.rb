@@ -1,15 +1,14 @@
 require "factory_inspector/version"
 #require "factory_girl"
 module FactoryInspector
-  #直moduleでいい気がする
   def self.factory_inspect(factory)
     result = {}
-    #build_class => db_table
+    #model_class: model definition
     result[:model_class] = factory.build_class
-    #definition
-    ##name
+    #definition:
+    ##name:factory's name
     result[:name] = factory.name.to_s
-    ##attributes
+    ##attributes: attributes's name, type(static, dynamic, or association), each factory_name.
     result[:attributes] = []
 
     factory.definition.attributes.each do |attr|
@@ -27,6 +26,7 @@ module FactoryInspector
       result[:attributes].push(hash)
     end
 
+    ##defined_traits: Traits which this factory (contain not used this instance).
     result[:defined_traits] = []
     factory.definition.defined_traits.each do |trait|
       result[:defined_traits].push(trait.name.to_s)
