@@ -1,8 +1,6 @@
 # FactoryInspector
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/factory_inspector`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+This gem help you getting infos about factory which you execute.For more detail, See <blog url>.
 
 ## Installation
 
@@ -22,13 +20,24 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+ 1. You need to modify factory girl's code as follows.
 
-## Development
+ ```.rb
+ #@ lib/factory_girl/factory_runnner.rb
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `bin/console` for an interactive prompt that will allow you to experiment.
+ instrumentation_payload = { name: @name, strategy: runner_strategy, traits: @traits.to_s, overrides: @overrides, factory: factory}
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release` to create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+ ```
+
+ and your app's code, (plobably, at `/config/initializers/notification.rb` if your app is rails app)
+
+ ```.rb
+ factory_info = FactoryInspector.factory_inspect(payload[:factory])
+ traits_info = FactoryInspector.traits_inspect(payload[:traits])
+ ```
+
+ so, you can get some info about factory from simple hash object.
+
 
 ## Contributing
 
