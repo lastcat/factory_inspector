@@ -26,6 +26,8 @@ module FactoryInspector
       result[:attributes].push(hash)
     end
 
+    ##assoations generated in factory
+    result[:assos] = result[:attributes].select{ |attr| attr[:type] == "association"}
     ##defined_traits: Traits which this factory (contain not used this instance).
     result[:defined_traits] = []
     factory.definition.defined_traits.each do |trait|
