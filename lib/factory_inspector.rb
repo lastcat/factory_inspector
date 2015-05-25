@@ -34,11 +34,4 @@ module FactoryInspector
     result
   end
 
-  #This is simply convert string to symbol array
-  def self.trait_inspect(traits)
-    traits_content = traits.delete("[").delete("]")
-    [] if traits_content == ""
-    traits_content.split(",").map{|str| str.strip.delete(":").to_sym}
-  end
-
 end

@@ -25,7 +25,7 @@ Or install it yourself as:
  ```.rb
  #@ lib/factory_girl/factory_runnner.rb
 
- instrumentation_payload = { name: @name, strategy: runner_strategy, traits: @traits.to_s, overrides: @overrides, factory: factory}
+ instrumentation_payload = { name: @name, strategy: runner_strategy, traits: @traits, overrides: @overrides, factory: factory}
 
  ```
 
