@@ -20,7 +20,7 @@ Or install it yourself as:
 
 ## Usage
 
- 1. You need to modify factory girl's code as follows.
+ You need to modify factory girl's code as follows.
 
  ```.rb
  #@ lib/factory_girl/factory_runnner.rb
