@@ -20,9 +20,11 @@ module FactoryInspector
         hash[:type] = "dynamic"
       when FactoryGirl::Attribute::Association
         hash[:type] = "association"
+        name_and_traits = attr.factory
+        hash[:factory_name] = name_and_traits.shift.to_s
+        hash[:traits] = name_and_traits.map{ |tr| tr.to_s }
       end
       hash[:name] = attr.name.to_s
-      hash[:factory_name] = attr.try(:factory).to_s
       result[:attributes].push(hash)
     end
 
