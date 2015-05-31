@@ -21,7 +21,7 @@ module FactoryInspector
       when FactoryGirl::Attribute::Association
         hash[:type] = "association"
         name_and_traits = attr.factory
-        if name_and_traits.array?
+        if name_and_traits.class == Array
           hash[:factory_name] = name_and_traits.shift.to_s
           hash[:traits] = name_and_traits.map{ |tr| tr.to_s }
         else
