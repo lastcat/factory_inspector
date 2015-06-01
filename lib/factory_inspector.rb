@@ -22,8 +22,8 @@ module FactoryInspector
         hash[:type] = "association"
         name_and_traits = attr.factory
         if name_and_traits.class == Array
-          hash[:factory_name] = name_and_traits.shift.to_s
-          hash[:traits] = name_and_traits.map{ |tr| tr.to_s }
+          hash[:factory_name] = name_and_traits.first.to_s
+          hash[:traits] = name_and_traits.drop(1).map{ |tr| tr.to_s }
         else
           hash[:factory_name] = name_and_traits.to_s
           hash[:traits] = []
